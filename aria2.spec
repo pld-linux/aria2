@@ -1,4 +1,5 @@
 Summary:	Aria2 is a download utility with resuming and segmented downloading
+Summary(pl.UTF-8):	Narzędzie pobierania plików z obsługą wznawiania i pobierania segmentowego
 Name:		aria2
 Version:	0.10.1
 Release:	0.1
@@ -18,6 +19,15 @@ results in very high speed downloading, very much faster than ordinary
 browsers. It can also download BitTorrent files. We implemented this
 engine in single-thread model. The architecture is very clean and easy
 to extend. It also supports Metalink version 3.0.
+
+%description -l pl.UTF-8
+Aria2 wykorzystuje silnik pobierania segmentowego. Może pobierać
+jeden plik z kilku adresów lub użyć wielu połączeń do jednego
+serwera. W rezultacie pobieranie jest bardzo szybkie, znacznie
+szybsze niż w przypadku standardowej przeglądarki WWW. Silnik ten
+zaimplementowany jest w modelu jednowątkowym. Aria2 charakteryzuje
+się bardzo prostą i rozszerzalną architekturą, która obsługuje także
+pliki BitTorrent oraz MetaLink w wersji 3.0.
 
 %prep
 %setup -q
