@@ -5,7 +5,7 @@ Version:	1.10.9
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://dl.sourceforge.net/aria2/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/aria2/%{name}-%{version}.tar.bz2
 # Source0-md5:	856cd88e75c7b893b42f4b6b8f2c0ad1
 URL:		http://aria2.sourceforge.net/
 BuildRequires:	gnutls-devel
@@ -21,13 +21,13 @@ engine in single-thread model. The architecture is very clean and easy
 to extend. It also supports Metalink version 3.0.
 
 %description -l pl.UTF-8
-Aria2 wykorzystuje silnik pobierania segmentowego. Może pobierać
-jeden plik z kilku adresów lub użyć wielu połączeń do jednego
-serwera. W rezultacie pobieranie jest bardzo szybkie, znacznie
-szybsze niż w przypadku standardowej przeglądarki WWW. Silnik ten
-zaimplementowany jest w modelu jednowątkowym. Aria2 charakteryzuje
-się bardzo prostą i rozszerzalną architekturą, która obsługuje także
-pliki BitTorrent oraz MetaLink w wersji 3.0.
+Aria2 wykorzystuje silnik pobierania segmentowego. Może pobierać jeden
+plik z kilku adresów lub użyć wielu połączeń do jednego serwera. W
+rezultacie pobieranie jest bardzo szybkie, znacznie szybsze niż w
+przypadku standardowej przeglądarki WWW. Silnik ten zaimplementowany
+jest w modelu jednowątkowym. Aria2 charakteryzuje się bardzo prostą i
+rozszerzalną architekturą, która obsługuje także pliki BitTorrent oraz
+MetaLink w wersji 3.0.
 
 %prep
 %setup -q
