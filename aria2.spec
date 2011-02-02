@@ -8,8 +8,10 @@ Group:		Applications/Networking
 Source0:	http://downloads.sourceforge.net/aria2/%{name}-%{version}.tar.bz2
 # Source0-md5:	856cd88e75c7b893b42f4b6b8f2c0ad1
 URL:		http://aria2.sourceforge.net/
+BuildRequires:	cppunit-devel
 BuildRequires:	gnutls-devel
 BuildRequires:	libxml2-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
