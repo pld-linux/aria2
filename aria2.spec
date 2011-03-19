@@ -1,12 +1,12 @@
 Summary:	Aria2 is a download utility with resuming and segmented downloading
 Summary(pl.UTF-8):	Narzędzie do pobierania plików z obsługą wznawiania i pobierania segmentowego
 Name:		aria2
-Version:	1.10.9
+Version:	1.11.0
 Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://downloads.sourceforge.net/aria2/%{name}-%{version}.tar.bz2
-# Source0-md5:	856cd88e75c7b893b42f4b6b8f2c0ad1
+# Source0-md5:	d619a8b7c4870a768cf586e092c97418
 URL:		http://aria2.sourceforge.net/
 BuildRequires:	cppunit-devel
 BuildRequires:	gnutls-devel
@@ -51,6 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f aria2.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS README.asciidoc
 %attr(755,root,root) %{_bindir}/aria2c
 %{_mandir}/man1/*
