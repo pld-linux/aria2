@@ -59,9 +59,7 @@ Summary(pl.UTF-8):	Bashowe dopełnianie parametrów programu aria2c
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
 Requires:	bash-completion >= 2.0
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description -n bash-completion-aria2
 Bash completion for aria2 commands.
