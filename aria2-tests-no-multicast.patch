@@ -1,0 +1,23 @@
+LPD tests join a multicast group, which fails with ENODEV in the builders'
+network-isolated namespace (only lo, no multicast route).
+
+--- aria2-1.37.0/test/Makefile.in.orig
++++ aria2-1.37.0/test/Makefile.in
+@@ -191,8 +191,6 @@
+ @ENABLE_BITTORRENT_TRUE@	PriorityPieceSelectorTest.cc\
+ @ENABLE_BITTORRENT_TRUE@	MockPieceSelector.h\
+ @ENABLE_BITTORRENT_TRUE@	extension_message_test_helper.h\
+-@ENABLE_BITTORRENT_TRUE@	LpdMessageDispatcherTest.cc\
+-@ENABLE_BITTORRENT_TRUE@	LpdMessageReceiverTest.cc\
+ @ENABLE_BITTORRENT_TRUE@	Bencode2Test.cc\
+ @ENABLE_BITTORRENT_TRUE@	PeerConnectionTest.cc\
+ @ENABLE_BITTORRENT_TRUE@	ValueBaseBencodeParserTest.cc\
+@@ -412,8 +410,6 @@
+ @ENABLE_BITTORRENT_TRUE@	MSEHandshakeTest.$(OBJEXT) \
+ @ENABLE_BITTORRENT_TRUE@	BittorrentHelperTest.$(OBJEXT) \
+ @ENABLE_BITTORRENT_TRUE@	PriorityPieceSelectorTest.$(OBJEXT) \
+-@ENABLE_BITTORRENT_TRUE@	LpdMessageDispatcherTest.$(OBJEXT) \
+-@ENABLE_BITTORRENT_TRUE@	LpdMessageReceiverTest.$(OBJEXT) \
+ @ENABLE_BITTORRENT_TRUE@	Bencode2Test.$(OBJEXT) \
+ @ENABLE_BITTORRENT_TRUE@	PeerConnectionTest.$(OBJEXT) \
+ @ENABLE_BITTORRENT_TRUE@	ValueBaseBencodeParserTest.$(OBJEXT) \

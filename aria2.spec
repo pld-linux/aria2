@@ -2,20 +2,28 @@
 # Conditional build:
 %bcond_with	openssl	# OpenSSL instead of GnuTLS
 %bcond_with	libuv	# libuv usage
+%bcond_without	tests	# unit tests
 
 Summary:	Aria2 is a download utility with resuming and segmented downloading
 Summary(pl.UTF-8):	Narzędzie do pobierania plików z obsługą wznawiania i pobierania segmentowego
 Name:		aria2
-Version:	1.35.0
-Release:	3
+Version:	1.37.0
+Release:	1
 License:	GPL v2+ with OpenSSL exception
 Group:		Applications/Networking
 #Source0Download: https://github.com/aria2/aria2/releases
-Source0:	https://github.com/aria2/aria2/releases/download/release-1.35.0/%{name}-%{version}.tar.gz
-# Source0-md5:	6057c91559a3e82e44a89689944b5d0c
+Source0:	https://github.com/aria2/aria2/releases/download/release-%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	dd00565c2f671331735089e6b807ece0
+# https://github.com/aria2/aria2/commit/44aa33d40901b0f3751231c8029b6743cf31f789
+Patch0:		CVE-2026-8367.patch
+# https://github.com/aria2/aria2/pull/2376
+Patch1:		CVE-2026-75421.patch
+# https://github.com/aria2/aria2/pull/2372
+Patch2:		CVE-2026-71832.patch
+Patch3:		%{name}-tests-no-multicast.patch
 URL:		https://aria2.github.io/
 BuildRequires:	c-ares-devel >= 1.7.0
-BuildRequires:	cppunit-devel >= 1.10.2
+%{?with_tests:BuildRequires:	cppunit-devel >= 1.10.2}
 %{!?with_openssl:BuildRequires:	gmp-devel}
 %{!?with_openssl:BuildRequires:	gnutls-devel >= 2.2.0}
 BuildRequires:	libssh2-devel
@@ -69,6 +77,10 @@ Bashowe dopełnianie parametrów poleceń aria2.
 
 %prep
 %setup -q
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %configure \
@@ -77,6 +89,10 @@ Bashowe dopełnianie parametrów poleceń aria2.
 	%{?with_libuv:--with-libuv}
 
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
